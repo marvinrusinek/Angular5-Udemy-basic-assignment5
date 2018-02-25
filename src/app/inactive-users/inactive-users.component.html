@@ -1,0 +1,20 @@
+<h3>Inactive Users</h3>
+<ul class="list-group" *ngIf="users.length != 0; else noUsers">
+  <li
+    class="list-group-item"
+    *ngFor="let user of users; let i = index">
+    <span class="glyphicon glyphicon-user"></span>
+    {{ user }}
+    <a href="#" (click)="onSetToActive(i)" class="activity-toggle pull-right">
+      <span class='label label-success'>Set to Active</span>
+    </a>
+  </li>
+</ul>
+<ng-template #noUsers>
+  <div class="panel panel-danger">
+    <div class="panel-heading">No users</div>
+    <div class="panel-body">
+      <p>There are no inactive users.</p>
+    </div>
+  </div>
+</ng-template>
